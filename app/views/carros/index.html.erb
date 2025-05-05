@@ -1,0 +1,24 @@
+<h1> Lista de Carros </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id </th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Ano</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carros.each do |carro| %>
+      <tr>
+        <td><%= link_to "Id: #{carro.id}", carros_show_path(id: carro.id) %></td>
+        <td><%= carro.marca %></td>
+        <td><%= carro.modelo %></td>
+        <td><%= carro.ano %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
