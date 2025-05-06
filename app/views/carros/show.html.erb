@@ -1,8 +1,23 @@
-<h1> Mostrando o carro </h1>
+<h1>Carro Details</h1>
 
-<hr>
+<p>
+  <strong>ID:</strong>
+  <%= @carro.id %>
+</p>
 
-<div> <strong>Id </strong> @carro.id </div>
-<div> <strong>Nome </strong> @carro.nome </div>
-<div> <strong>Modelo </strong> @carro.modelo </div>
-<div> <strong>Ano </strong> @carro.ano </div>
+<p>
+  <strong>Marca:</strong>
+  <%= @carro.marca %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @carro.modelo %>
+</p>
+
+<p>
+  <strong>Ano:</strong>
+  <%= @carro.ano %>
+</p>
+
+<%= link_to 'Back to List', carros_path %>
