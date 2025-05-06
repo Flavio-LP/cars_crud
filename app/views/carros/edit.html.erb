@@ -15,6 +15,10 @@
   </div>
 
   <div>
-    <%= form.submit "Atualizar Carro" %>
+    <%= form.submit "Atualizar Carro", class: "botao" %>
+  </div>
+
+  <div>
+    <%= link_to "Cancelar", carros_path, class: "botao" %>
   </div>
 <% end %>
