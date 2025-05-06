@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   post "/carros", to: "carros#create"
   get "/carros/:id/edit", to: "carros#edit", as: "carros_edit"
   patch "/carros/:id", to: "carros#update", as: "carros_update"
-  delete "/carros/:id", to: "carros#destroy", as: "carros_destroy "
+  delete "/carros/:id", to: "carros#destroy", as: "carros_destroy"
 end

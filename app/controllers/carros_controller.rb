@@ -10,14 +10,14 @@ class CarrosController < ApplicationController
     @carro = Carro.find(params[:id])
   end
 
-
-
   def create
-    @carro = Carro.new()
+    @carro = Carro.new(carro_params) # Inicializa o objeto com os parâmetros do formulário
+    Rails.logger.debug "Carro params: #{carro_params.inspect}"
     if @carro.save
-      redirect_to @carro, notice: "Carro criado com sucesso!"
+      redirect_to carros_show_path(@carro), notice: "Carro criado com sucesso!" # Redireciona para a rota de exibição
     else
-      render :new
+      Rails.logger.debug "Erros ao salvar o carro: #{@carro.errors.full_messages}"
+      render :new # Renderiza o formulário novamente em caso de erro
     end
   end
 
@@ -28,7 +28,7 @@ class CarrosController < ApplicationController
   def update
     @carro = Carro.find(params[:id])
     if @carro.update(carro_params)
-      redirect_to @carro, notice: "Carro atualizado com sucesso!"
+      redirect_to carros_path(@carro), notice: "Carro atualizado com sucesso!"
     else
       render :edit
     end

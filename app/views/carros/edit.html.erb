@@ -1,23 +1,20 @@
-<form action="<%= carros_edit_path(@carro) %>" method="post">
-  <%= hidden_field_tag :_method, :patch %>
-  <%= csrf_meta_tags %>
-
+<%= form_with model: @carro, url: carros_update_path(@carro), method: :patch do |form| %>
   <div>
     <label for="marca">Marca:</label>
-    <%= text_field_tag :marca, @carro.marca %>
+    <%= form.text_field :marca %>
   </div>
 
   <div>
     <label for="modelo">Modelo:</label>
-    <%= text_field_tag :modelo, @carro.modelo %>
+    <%= form.text_field :modelo %>
   </div>
 
   <div>
     <label for="ano">Ano:</label>
-    <%= number_field_tag :ano, @carro.ano %>
+    <%= form.number_field :ano %>
   </div>
 
   <div>
-    <%= submit_tag "Atualizar Carro" %>
+    <%= form.submit "Atualizar Carro" %>
   </div>
-</form>
+<% end %>
