@@ -17,13 +17,29 @@
         <td><%= carro.modelo %></td>
         <td><%= carro.ano %></td>
         <td>
-          <%= link_to 'Mostrar', carros_show_path(carro.id) %>
-          <%= link_to 'Editar', carros_edit_path(carro.id) %>
-          <%= link_to 'Excluir', carros_destroy_path(carro.id), method: :delete, data: { confirm: 'Tem certeza?' } %>
+          <!-- Botão para Mostrar -->
+          <form action="<%= carro_path(carro) %>" method="get" style="display:inline;">
+            <button type="submit">Mostrar</button>
+          </form>
+
+          <!-- Botão para Editar -->
+          <form action="<%= edit_carro_path(carro) %>" method="get" style="display:inline;">
+            <button type="submit">Editar</button>
+          </form>
+
+          <!-- Botão para Excluir -->
+          <form action="<%= carro_path(carro) %>" method="post" style="display:inline;">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <button type="submit" data-confirm="Tem certeza?">Excluir</button>
+          </form>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Novo Carro', {:controller => 'carros', :action => 'new'} %>
+<!-- Botão para Novo Carro -->
+<form action="<%= new_carro_path %>" method="get" style="display:inline;">
+  <button type="submit">Novo Carro</button>
+</form>

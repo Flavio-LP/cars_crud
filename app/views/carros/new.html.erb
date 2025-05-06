@@ -1,4 +1,4 @@
-<%= form_with model: @carro, url: carros_path, method: :post do |form| %>
+<%= form_with model: @carro, method: :post do |form| %>
   <div>
     <label for="carro_marca">Marca:</label>
     <%= form.text_field :marca, id: "carro_marca", required: true %>
