@@ -3,21 +3,25 @@ class CarrosController < ApplicationController
     @carros = Carro.all
   end
   def new
-    @carro = Carro.new
+    @carro = Carro.new()
   end
 
   def show
+    if params[:id] == "new"
+      @carro = Carro.find(params[2])
+    end   
     @carro = Carro.find(params[:id])
   end
 
-
-
   def create
-    @carro = Carro.new()
+    @carro = Carro.new(carro_params) # Inicializa o objeto com os parâmetros do formulário
+    Rails.logger.debug "Carro params: #{carro_params.inspect}"
     if @carro.save
-      redirect_to @carro, notice: "Carro criado com sucesso!"
+      Rails.logger.debug "Carro params: #{carro_params.inspect}"
+      redirect_to carro_path(@carro), notice: "Carro criado com sucesso!" # Redireciona para a rota de exibição
     else
-      render :new
+      Rails.logger.debug "Erros ao salvar o carro: #{@carro.errors.full_messages}"
+      render :new # Renderiza o formulário novamente em caso de erro
     end
   end
 
@@ -28,7 +32,7 @@ class CarrosController < ApplicationController
   def update
     @carro = Carro.find(params[:id])
     if @carro.update(carro_params)
-      redirect_to @carro, notice: "Carro atualizado com sucesso!"
+      redirect_to carros_path(@carro), notice: "Carro atualizado com sucesso!"
     else
       render :edit
     end
@@ -36,7 +40,9 @@ class CarrosController < ApplicationController
 
   def destroy
     @carro = Carro.find(params[:id])
+    Rails.logger.debug "Tentando excluir o carro com ID: #{@carro.id}"
     @carro.destroy
+    Rails.logger.debug "Carro excluído com sucesso"
     redirect_to carros_path, notice: "Carro excluído com sucesso!"
   end
 
