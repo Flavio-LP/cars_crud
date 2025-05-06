@@ -59,3 +59,12 @@ production:
   password: <%= ENV["DATABASE_PASSWORD"] %>
   host: <%= ENV["DATABASE_HOST"] %>
   port: <%= ENV["DATABASE_PORT"] %>
+
+  # Configuração para o banco de dados do Action Cable
+  cable:
+    <<: *default
+    database: <%= ENV["CABLE_DATABASE_NAME"] || ENV["DATABASE_NAME"] %>
+    username: <%= ENV["CABLE_DATABASE_USERNAME"] || ENV["DATABASE_USERNAME"] %>
+    password: <%= ENV["CABLE_DATABASE_PASSWORD"] || ENV["DATABASE_PASSWORD"] %>
+    host: <%= ENV["CABLE_DATABASE_HOST"] || ENV["DATABASE_HOST"] %>
+    port: <%= ENV["CABLE_DATABASE_PORT"] %>
