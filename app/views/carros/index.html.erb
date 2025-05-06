@@ -1,45 +1,44 @@
-<h1>Carros</h1>
+<h1 class="mb-4">Carros</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>Ano</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @carros.each do |carro| %>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead class="table-primary">
       <tr>
-        <td><%= carro.id %></td>
-        <td><%= carro.marca %></td>
-        <td><%= carro.modelo %></td>
-        <td><%= carro.ano %></td>
-        <td>
-          <!-- Botão para Mostrar -->
-          <form action="<%= carro_path(carro) %>" method="get" style="display:inline;">
-            <button type="submit">Mostrar</button>
-          </form>
-
-          <!-- Botão para Editar -->
-          <form action="<%= edit_carro_path(carro) %>" method="get" style="display:inline;">
-            <button type="submit">Editar</button>
-          </form>
-
-          <!-- Botão para Excluir -->
-          <form action="<%= carro_path(carro) %>" method="post" style="display:inline;">
-            <input type="hidden" name="_method" value="delete">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            <button type="submit" data-confirm="Tem certeza?">Excluir</button>
-          </form>
-        </td>
+        <th>ID</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Ano</th>
+        <th>Ações</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @carros.each do |carro| %>
+        <tr>
+          <td><%= carro.id %></td>
+          <td><%= carro.marca %></td>
+          <td><%= carro.modelo %></td>
+          <td><%= carro.ano %></td>
+          <td>
+            <form action="<%= carro_path(carro) %>" method="get" style="display:inline;">
+              <button type="submit" class="btn btn-primary btn-sm">Mostrar</button>
+            </form>
 
-<!-- Botão para Novo Carro -->
+            <form action="<%= edit_carro_path(carro) %>" method="get" style="display:inline;">
+              <button type="submit" class="btn btn-warning btn-sm">Editar</button>
+            </form>
+
+            <form action="<%= carro_path(carro) %>" method="post" style="display:inline;">
+              <input type="hidden" name="_method" value="delete">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <button type="submit" class="btn btn-danger btn-sm" data-confirm="Tem certeza?">Excluir</button>
+            </form>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 <form action="<%= new_carro_path %>" method="get" style="display:inline;">
-  <button type="submit">Novo Carro</button>
+  <button type="submit" class="btn btn-success">Novo Carro</button>
 </form>

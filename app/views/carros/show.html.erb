@@ -1,25 +1,15 @@
-<h1>Carro Details</h1>
+<h1 class="mb-4">Detalhes do Carro</h1>
 
-<p>
-  <strong>ID:</strong>
-  <%= @carro.id %>
-</p>
-
-<p>
-  <strong>Marca:</strong>
-  <%= @carro.marca %>
-</p>
-
-<p>
-  <strong>Modelo:</strong>
-  <%= @carro.modelo %>
-</p>
-
-<p>
-  <strong>Ano:</strong>
-  <%= @carro.ano %>
-</p>
+<div class="card">
+  <div class="card-body">
+    <p><strong>ID:</strong> <%= @carro.id %></p>
+    <p><strong>Marca:</strong> <%= @carro.marca %></p>
+    <p><strong>Modelo:</strong> <%= @carro.modelo %></p>
+    <p><strong>Ano:</strong> <%= @carro.ano %></p>
+  </div>
+</div>
 
 <form action="<%= carros_path %>" method="get" style="display:inline;">
-  <button type="submit">Voltar a lista</button>
+  <button type="submit" class="btn btn-secondary mt-3">Voltar à Lista</button>
 </form>
+

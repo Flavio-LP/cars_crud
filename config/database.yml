@@ -22,38 +22,12 @@ default: &default
 
 development:
   <<: *default
-  database: railway
+  database: <%= ENV["DATABASE_NAME"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  host: <%= ENV["DATABASE_HOST"] %>
+  port: <%= ENV["DATABASE_PORT"] %>
 
-  # The specified database role being used to connect to PostgreSQL.
-  # To create additional roles in PostgreSQL see `$ createuser --help`.
-  # When left blank, PostgreSQL will use the default role. This is
-  # the same name as the operating system user running Rails.
-  username: postgres
-
-  # The password associated with the PostgreSQL role (username).
-  password: FosBkTGeGaQhKJVMeGOhdCfJUbiGXoXO
-
-  # Connect on a TCP socket. Omitted by default since the client uses a
-  # domain socket that doesn't need configuration. Windows does not have
-  # domain sockets, so uncomment these lines.
-  host: gondola.proxy.rlwy.net
-
-  # The TCP port the server listens on. Defaults to 5432.
-  # If your server runs on a different port number, change accordingly.
-  port: 42746
-
-  # Schema search path. The server defaults to $user,public
-  schema_search_path: myapp,sharedapp,public
-
-  # Minimum log levels, in increasing order:
-  #   debug5, debug4, debug3, debug2, debug1,
-  #   log, notice, warning, error, fatal, and panic
-  # Defaults to warning.
-  #min_messages: notice
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
   database: cars_crud_pg_test
@@ -79,20 +53,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: &primary_production
-    <<: *default
-    database: cars_crud_pg_production
-    username: cars_crud_pg
-    password: <%= ENV["CARS_CRUD_PG_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: cars_crud_pg_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: cars_crud_pg_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: cars_crud_pg_production_cable
-    migrations_paths: db/cable_migrate
+  <<: *default
+  database: <%= ENV["DATABASE_NAME"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  host: <%= ENV["DATABASE_HOST"] %>
+  port: <%= ENV["DATABASE_PORT"] %>

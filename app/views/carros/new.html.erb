@@ -1,20 +1,23 @@
-<%= form_with model: @carro, method: :post do |form| %>
-  <div>
-    <label for="carro_marca">Marca:</label>
-    <%= form.text_field :marca, id: "carro_marca", required: true %>
+<h1 class="mb-4">Novo Carro</h1>
+
+<%= form_with model: @carro, method: :post, class: "needs-validation" do |form| %>
+  <div class="mb-3">
+    <label for="carro_marca" class="form-label">Marca:</label>
+    <%= form.text_field :marca, id: "carro_marca", class: "form-control", required: true %>
   </div>
-  
-  <div>
-    <label for="carro_modelo">Modelo:</label>
-    <%= form.text_field :modelo, id: "carro_modelo", required: true %>
+
+  <div class="mb-3">
+    <label for="carro_modelo" class="form-label">Modelo:</label>
+    <%= form.text_field :modelo, id: "carro_modelo", class: "form-control", required: true %>
   </div>
-  
-  <div>
-    <label for="carro_ano">Ano:</label>
-    <%= form.number_field :ano, id: "carro_ano", required: true %>
+
+  <div class="mb-3">
+    <label for="carro_ano" class="form-label">Ano:</label>
+    <%= form.number_field :ano, id: "carro_ano", class: "form-control", required: true %>
   </div>
-  
-  <div>
-    <%= form.submit "Criar Carro" %>
+
+  <div class="d-flex gap-2">
+    <%= form.submit "Criar Carro", class: "btn btn-success" %>
+    <%= link_to "Cancelar", carros_path, class: "btn btn-secondary" %>
   </div>
 <% end %>
