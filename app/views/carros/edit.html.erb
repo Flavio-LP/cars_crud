@@ -1,0 +1,23 @@
+<form action="<%= carros_edit_path(@carro) %>" method="post">
+  <%= hidden_field_tag :_method, :patch %>
+  <%= csrf_meta_tags %>
+
+  <div>
+    <label for="marca">Marca:</label>
+    <%= text_field_tag :marca, @carro.marca %>
+  </div>
+
+  <div>
+    <label for="modelo">Modelo:</label>
+    <%= text_field_tag :modelo, @carro.modelo %>
+  </div>
+
+  <div>
+    <label for="ano">Ano:</label>
+    <%= number_field_tag :ano, @carro.ano %>
+  </div>
+
+  <div>
+    <%= submit_tag "Atualizar Carro" %>
+  </div>
+</form>

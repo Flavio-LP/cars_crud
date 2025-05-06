@@ -1,0 +1,20 @@
+<form action="<%= carros_create %>" method="post">
+  <div>
+    <label for="carro_marca">Marca:</label>
+    <input type="text" name="carro[marca]" id="carro_marca" required>
+  </div>
+  
+  <div>
+    <label for="carro_modelo">Modelo:</label>
+    <input type="text" name="carro[modelo]" id="carro_modelo" required>
+  </div>
+  
+  <div>
+    <label for="carro_ano">Ano:</label>
+    <input type="number" name="carro[ano]" id="carro_ano" required>
+  </div>
+  
+  <div>
+    <button type="submit">Criar Carro</button>
+  </div>
+</form>
