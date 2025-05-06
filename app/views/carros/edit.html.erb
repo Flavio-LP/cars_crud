@@ -1,24 +1,23 @@
-<%= form_with model: @carro, url: carro_path(@carro), method: :patch do |form| %>
-  <div>
-    <label for="marca">Marca:</label>
-    <%= form.text_field :marca %>
+<h1 class="mb-4">Editar Carro</h1>
+
+<%= form_with model: @carro, url: carro_path(@carro), method: :patch, class: "needs-validation" do |form| %>
+  <div class="mb-3">
+    <label for="marca" class="form-label">Marca:</label>
+    <%= form.text_field :marca, class: "form-control", id: "marca" %>
   </div>
 
-  <div>
-    <label for="modelo">Modelo:</label>
-    <%= form.text_field :modelo %>
+  <div class="mb-3">
+    <label for="modelo" class="form-label">Modelo:</label>
+    <%= form.text_field :modelo, class: "form-control", id: "modelo" %>
   </div>
 
-  <div>
-    <label for="ano">Ano:</label>
-    <%= form.number_field :ano %>
+  <div class="mb-3">
+    <label for="ano" class="form-label">Ano:</label>
+    <%= form.number_field :ano, class: "form-control", id: "ano" %>
   </div>
 
-  <div>
-    <%= form.submit "Atualizar Carro", class: "botao" %>
-  </div>
-
-  <div>
-    <%= link_to "Cancelar", carros_path, class: "botao" %>
+  <div class="d-flex gap-2">
+    <%= form.submit "Atualizar Carro", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", carros_path, class: "btn btn-secondary" %>
   </div>
 <% end %>

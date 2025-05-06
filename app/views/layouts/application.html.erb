@@ -26,6 +26,25 @@
   </head>
 
   <body>
-    <%= yield %>
+
+
+    <!-- Header -->
+    <header class="bg-primary text-white py-3 mb-4">
+      <div class="container">
+        <h1 class="mb-0">Carros - Crud</h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container flex-grow-1">
+      <%= yield %>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 mt-4">
+      <div class="container text-center">
+        <p class="mb-0">&copy; <%= Time.now.year %> Cars Crud Pg. Todos os direitos reservados.</p>
+      </div>
+    </footer>
   </body>
 </html>
