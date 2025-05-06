@@ -1,22 +1,21 @@
 <h1>Carros</h1>
 
-<table>
-  <thead>
+<table >
+  <thead >
     <tr>
-      <th>ID</th>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>Ano</th>
+      <th >ID</th>
+      <th >Marca</th>
+      <th >Modelo</th>
+      <th >Ano</th>
     </tr>
   </thead>
   <tbody>
     <% @carros.each do |carro| %>
-      <tr>
-        <td><%= carro.id %></td>
-        <td><%= carro.marca %></td>
-        <td><%= carro.modelo %></td>
-        <td><%= carro.ano %></td>
-        <td>
+      <tr >
+        <td ><%= carro.id %></td>
+        <td ><%= carro.marca %></td>
+        <td ><%= carro.modelo %></td>
+        <td ><%= carro.ano %></td>
           <!-- Botão para Mostrar -->
           <form action="<%= carro_path(carro) %>" method="get" style="display:inline;">
             <button type="submit" >Mostrar</button>
